@@ -124,7 +124,7 @@ class IntelliTravelAI:
     def get_weather_data(self, destination, start_date):
         """Get weather data for the destination"""
         # Using OpenWeatherMap API (replace with your API key)
-        api_key = "AIzaSyCdbW71ZMz7Z3fQEWw2hVlvUpoikq49Ha0"
+        api_key = "[Weather_API_Key]"
         base_url = "http://api.openweathermap.org/data/2.5/forecast"
         
         try:
@@ -146,7 +146,7 @@ class IntelliTravelAI:
     def get_places_data(self, destination):
         """Get places data using Google Places API"""
         # Replace with your Google Places API key
-        api_key = "AIzaSyCdbW71ZMz7Z3fQEWw2hVlvUpoikq49Ha0"
+        api_key = "[Places_API_Key]"
         base_url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
         
         queries = [
