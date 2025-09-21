@@ -1,0 +1,98 @@
+import React from 'react';
+import { Card, CardContent } from './ui/card';
+import { Badge } from './ui/badge';
+import { Brain, Wallet, Compass, Zap, Calendar, Smartphone } from 'lucide-react';
+import { features } from '../mock';
+
+const iconMap = {
+  Brain,
+  Wallet,
+  Compass,
+  Zap,
+  Calendar,
+  Smartphone
+};
+
+const Features = () => {
+  return (
+    <section id="features" className="py-20 px-6 relative">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-50/40 to-orange-50/40"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16 space-y-4">
+          <Badge className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 border-amber-300">
+            ✨ Powered by AI
+          </Badge>
+          <h2 className="text-4xl lg:text-5xl font-bold text-amber-900">
+            Why Choose <span className="bg-gradient-to-r from-amber-700 to-red-700 bg-clip-text text-transparent">IntelliTravel AI?</span>
+          </h2>
+          <p className="text-xl text-amber-800 max-w-3xl mx-auto leading-relaxed">
+            Experience the future of travel planning with our intelligent features designed specifically for Indian travelers
+          </p>
+        </div>
+
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => {
+            const IconComponent = iconMap[feature.icon];
+            
+            return (
+              <Card 
+                key={feature.id} 
+                className="group backdrop-blur-lg bg-amber-50/40 border border-amber-200/50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+              >
+                <CardContent className="p-8 space-y-6">
+                  {/* Icon */}
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color.replace('from-orange-400 to-red-500', 'from-amber-500 to-red-600').replace('from-green-400 to-emerald-500', 'from-amber-500 to-orange-600').replace('from-blue-400 to-indigo-500', 'from-orange-500 to-red-600').replace('from-yellow-400 to-orange-500', 'from-amber-400 to-orange-500').replace('from-purple-400 to-pink-500', 'from-red-500 to-orange-600').replace('from-teal-400 to-cyan-500', 'from-amber-600 to-red-600')} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <IconComponent className="w-8 h-8 text-white" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-bold text-amber-900 group-hover:text-red-700 transition-colors">
+                      {feature.title}
+                    </h3>
+                    <p className="text-amber-700 leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+
+                  {/* Hover Effect */}
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-full h-1 bg-gradient-to-r from-amber-600 to-red-600 rounded-full"></div>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-20 text-center">
+          <Card className="backdrop-blur-lg bg-gradient-to-r from-amber-100/60 to-orange-100/60 border border-amber-200/50 max-w-4xl mx-auto">
+            <CardContent className="p-12">
+              <h3 className="text-3xl font-bold text-amber-900 mb-4">
+                Ready to Experience Smart Travel Planning?
+              </h3>
+              <p className="text-amber-800 text-lg mb-8">
+                Join thousands of travelers who trust IntelliTravel AI for their perfect Indian adventures
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="bg-gradient-to-r from-amber-600 to-red-600 hover:from-amber-700 hover:to-red-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg">
+                  Start Planning Your Trip
+                </button>
+                <button className="border-2 border-amber-300 text-amber-800 hover:bg-amber-100 px-8 py-4 rounded-lg font-semibold transition-all duration-300">
+                  Watch Demo
+                </button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Features;
