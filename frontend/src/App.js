@@ -35,7 +35,7 @@ function App() {
     };
     
     try {
-      const response = await fetch('https://intellitravel-backend-460106378500.us-central1.run.app/api/generate-itinerary', {
+      const response = await fetch('[cloud_run_link]/api/generate-itinerary', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
